@@ -10,8 +10,6 @@ There are some prerequisites to making QR codes with the designer.
 
 In order to maximize designer space, the url that the QR codes links to is expected to be exactly 25 characters long from the set of [alphanumeric characters](https://en.wikipedia.org/wiki/QR_code#Design) - `0–9, A–Z (upper-case only), space, $, %, *, +, -, ., /, :`
 
-It is currently [hardcoded](https://github.com/kochrt/qr-designer/blob/84d61675083347171018db95ed3fec0215a27bef/components/Design/QRGroup.vue#L138) to be `HTTPS://GITHUB.COM/KOCHRT`.
-
 When I had the `sw.ink` and `qr.new` domains, it would direct to `HTTPS://SW.INK/${QR_ID}` where `QR_ID` would be a 10 alphanumeric-character long id set as part of the link shortening process.
 
 If you want to change this you would do it in [components/Design/QRGroup.vue](components/Design/QRGroup.vue) at line 138.
