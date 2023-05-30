@@ -25,3 +25,14 @@ Node version 16 is expected.
 > npm run generate
 > npm run start
 ```
+
+## Examples
+
+![](static/example_designs/1.png)
+![](static/example_designs/2.png)
+![](static/example_designs/3.png)
+![](static/example_designs/4.png)
+![](static/example_designs/5.png)
+![](static/example_designs/6.png)
+![](static/example_designs/7.png)
+![](static/example_designs/8.png)
