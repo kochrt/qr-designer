@@ -1,0 +1,15 @@
+{
+	"SLOW_MO": 0,
+	"VIEWPORT": "1920x1080",
+
+	"HEADLESS": true,
+	"SCREEN_FAILED_TESTS": true,
+	"DEFAULT_TIMEOUT": 600,
+	"RETRY_TIMES": 0,
+
+	"TYPING_DELAY": 0,
+
+	"BROWSERS": "chromium",
+	"DEVICES": "",
+	"TEST_NAME_PATTERN": ""
+}
