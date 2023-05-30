@@ -96,7 +96,7 @@ for (let x = 1; x < 42; x++) {
 
 export default Vue.extend({
   components: { BackgroundGrid, DetectorBlock },
-  props: ["backgroundConfig"],
+  props: ["backgroundConfig", "url"],
   data() {
     return {
       detectors,
@@ -106,24 +106,35 @@ export default Vue.extend({
   watch: {
     swinkId: function(val) {
       this.update();
+    },
+    url: function(val) {
+      this.update()
     }
   },
-  computed: mapState({
-    qrSize: state => (state as RootState).designMeta.sizing.qrSize,
-    pixelsPerBlock: state =>
-      (state as RootState).designMeta.sizing.pixelsPerBlock,
-    qrOffset: state => {
-      const pixelsPerBlock = (state as RootState).designMeta.sizing
-        .pixelsPerBlock;
-      return { x: pixelsPerBlock, y: pixelsPerBlock };
+  computed: {
+    adjustedUrl() {
+      if (this.url.length < 25) {
+        return this.url + " ".repeat(25 - this.url.length)
+      }
     },
-    baseWidth: state => (state as RootState).designMeta.sizing.baseWidth,
-    bits: (state: any) => state.designMeta.qr.bits as number[],
-    swinkId: (state: any) => (state.swink?.swink?.metadata?.id as string) || "",
-    showInterpretedPixels: (state: any) =>
-      state.designMeta.qr.showInterpretedPixels as boolean,
-    dots: (state: any) => state.design.qr.dots as Dots
-  }),
+    ...mapState({
+      qrSize: state => (state as RootState).designMeta.sizing.qrSize,
+      pixelsPerBlock: state =>
+        (state as RootState).designMeta.sizing.pixelsPerBlock,
+      qrOffset: state => {
+        const pixelsPerBlock = (state as RootState).designMeta.sizing
+          .pixelsPerBlock;
+        return { x: pixelsPerBlock, y: pixelsPerBlock };
+      },
+      baseWidth: state => (state as RootState).designMeta.sizing.baseWidth,
+      bits: (state: any) => state.designMeta.qr.bits as number[],
+      swinkId: (state: any) =>
+        (state.swink?.swink?.metadata?.id as string) || "",
+      showInterpretedPixels: (state: any) =>
+        state.designMeta.qr.showInterpretedPixels as boolean,
+      dots: (state: any) => state.design.qr.dots as Dots
+    })
+  },
   mounted() {
     this.update();
   },
@@ -135,7 +146,7 @@ export default Vue.extend({
       const swinkId = this.swinkId || "AAAAAAAAAA";
       const dataSegments = [
         {
-          data: "HTTPS://GITHUB.COM/KOCHRT", // `HTTPS://SW.INK/${swinkId.toUpperCase()}`,
+          data: this.adjustedUrl, // `HTTPS://SW.INK/${swinkId.toUpperCase()}`,
           mode: "alphanumeric"
         }
       ];

@@ -44,19 +44,29 @@
                 >README</a
               >
             </p>
-            <p>
-              The QR in the designer below is hardcoded to direct to
-              <a class="underline" href="https://github.com/kochrt"
-                >https://github.com/kochrt</a
-              >
-              because it is conveniently 25 characters long. Read the
-              <a href="https://github.com/kochrt/qr-designer" class="underline"
-                >README</a
-              >
-              about how to change where the QR code directs to.
-            </p>
           </div>
         </div>
+      </div>
+      <div class="flex flex-col px-4 md:px-8 w-full pb-4">
+        <p>
+          The following character set is allowed:
+        </p>
+        <code class="pb-1 text-sm"
+          >0–9, A–Z (upper-case only), space, $, %, *, +, -, ., /, :</code
+        >
+        <p>
+          Values less than 25 characters will be padded with spaces, but that
+          should be ok for most urls
+        </p>
+        <input
+          type="text"
+          placeholder="URL"
+          pattern="[A-Z ]+"
+          class="w-full"
+          v-model="url"
+          @input="urlInput"
+        />
+        <p class="text-sm">{{ url.length }} / 25</p>
       </div>
       <div class="w-full px-4 md:px-8 flex flex-col md:flex-row">
         <sidebar @test="runScannabilityTest" />
@@ -87,6 +97,7 @@
                 <v-rect :config="backgroundConfig" />
                 <QRGroup
                   ref="qrGroup"
+                  :url="url"
                   :backgroundConfig="backgroundConfig"
                   @transform="transformed"
                   @transformend="transformEnd"
@@ -291,7 +302,8 @@ export default Vue.extend({
       },
       isStageMounted: false,
       transformerPosition: null as { x: number; y: number } | null,
-      lastDist: 0
+      lastDist: 0,
+      url: ""
     };
   },
   computed: {
@@ -389,6 +401,16 @@ export default Vue.extend({
     selectedNodeIds: function(val) {}
   },
   methods: {
+    urlInput(el: HTMLInputElement) {
+      if (this.url) {
+        this.url = this.url.replaceAll(/[^0-9A-Za-z \$\%\*\+\-\.\/\:]/g, "");
+        if (this.url.length > 25) {
+          this.url = this.url.substring(0, 25);
+          return false;
+        }
+        this.url = this.url.toUpperCase();
+      }
+    },
     async download() {
       await this.prepForScannabilityTest();
       const dataUrl = this.stage.toDataURL({ pixelRatio: 3 });
