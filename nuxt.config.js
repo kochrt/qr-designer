@@ -31,9 +31,6 @@ export default {
     ],
     script: [
       {
-        src: "https://kit.fontawesome.com/1a20937739.js"
-      },
-      {
         src: "https://js.stripe.com/v3/",
         defer: true
       }
