@@ -60,7 +60,7 @@
           >
             <img
               loading="lazy"
-              :src="`/example_designs/${example.image}`"
+              :src="`/qr-designer/example_designs/${example.image}`"
               class="w-full h-auto"
             />
             <div class="flex items-center justify-center mt-1">
