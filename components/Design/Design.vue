@@ -49,7 +49,7 @@
               <a class="underline" href="https://github.com/kochrt"
                 >https://github.com/kochrt</a
               >
-              because it is conviently 25 characters long. Read the
+              because it is conveniently 25 characters long. Read the
               <a href="https://github.com/kochrt/qr-designer" class="underline"
                 >README</a
               >
