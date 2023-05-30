@@ -39,13 +39,21 @@
           </svg>
           <div class="">
             <p>
-              Please read the <a href="https://github.com/kochrt/qr-designer" class="underline">README</a>
+              Please read the
+              <a href="https://github.com/kochrt/qr-designer" class="underline"
+                >README</a
+              >
             </p>
             <p>
               The QR in the designer below is hardcoded to direct to
               <a class="underline" href="https://github.com/kochrt"
                 >https://github.com/kochrt</a
               >
+              because it is conviently 25 characters long. Read the
+              <a href="https://github.com/kochrt/qr-designer" class="underline"
+                >README</a
+              >
+              about how to change where the QR code directs to.
             </p>
           </div>
         </div>
