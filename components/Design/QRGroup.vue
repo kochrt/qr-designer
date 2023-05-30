@@ -112,10 +112,11 @@ export default Vue.extend({
     }
   },
   computed: {
-    adjustedUrl() {
+    adjustedUrl(): string {
       if (this.url.length < 25) {
         return this.url + " ".repeat(25 - this.url.length)
       }
+      return ''
     },
     ...mapState({
       qrSize: state => (state as RootState).designMeta.sizing.qrSize,
