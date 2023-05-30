@@ -1,6 +1,6 @@
-# Swink QR code designer
+# QR code designer
 
-This is the design app for my failed startup, swink. You can use it to create QR codes that have arbitrary designs in the middle section, taking advantage of the error correction that QR codes use to deterministically turn some pixels in the code pattern on or off without affecting what the QR code is pointing to.
+This is a QR design web app that you can use to create QR codes that have arbitrary designs in the middle section. Compared to other qr designs, this does not take advantage of error correction that QR codes use, but rather deterministically turns some pixels in the code pattern on or off without affecting what the QR code is pointing to.
 
 ## Prerequisites
 
