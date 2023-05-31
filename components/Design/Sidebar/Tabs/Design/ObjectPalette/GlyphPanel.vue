@@ -29,7 +29,7 @@
       <text-boxes @check-shadow="$emit('check-shadow')" />
       <accordian-panel
         type="design"
-        :title="`Images`"
+        :title="`Images (images work now)`"
         :defaultCollapsed="true"
         @check-shadow="$emit('check-shadow')"
       >
