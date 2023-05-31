@@ -1,0 +1,25 @@
+version: "2"
+services:
+  qr-generator:
+    image: "node:16"
+    user: "node"
+    build:
+      context: .
+      dockerfile_inline: |
+        FROM node:16
+        RUN mkdir -p /home/node/app
+        COPY . /home/node/app
+        WORKDIR /home/node/app
+        RUN npm install; 
+        RUN npm run generate;
+
+    working_dir: /home/node/app
+    environment:
+      - NODE_ENV=production
+    volumes:
+      - ./:/home/node/app
+    expose:
+      - "8081"
+    ports:
+      - "8081:8081"
+    command: "npm install; npm run generate; npm start"

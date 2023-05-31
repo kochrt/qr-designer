@@ -33,7 +33,7 @@
     "font-picker": "^2.2.1",
     "konva": "^8.1.3",
     "lru-cache": "^6.0.0",
-    "nuxt": "^2.14.12",
+    "nuxt": "^2.16.3",
     "nuxt-element-ui": "^1.0.10",
     "patternomaly": "^1.3.2",
     "prism-themes": "^1.7.0",
