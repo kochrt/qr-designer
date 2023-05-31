@@ -3,12 +3,11 @@
     <el-upload
       class="w-full mb-2"
       drag
-      :action="uploadUrl"
-      :before-upload="getHeaders"
+      action=""
       :headers="headers"
-      :on-progress="onProgress"
-      :on-success="refreshImages"
+      :on-change="onChange"
       :accept="'image/png, image/jpeg'"
+      :auto-upload="false"
       :show-file-list="false"
     >
       <i class="el-icon-upload"></i>
@@ -30,7 +29,7 @@
         </div>
       </div>
     </el-upload>
-    <design-image-list :newestUploadId="newestUploadId" />
+    <design-image-list :imageAdded="imageAdded" />
   </div>
 </template>
 
@@ -43,28 +42,28 @@ export default Vue.extend({
   data() {
     return {
       headers: {},
-      newestUploadId: "",
+      imageAdded: null
     };
   },
   methods: {
     async getHeaders() {
       const token = await this.$fire.auth.currentUser!.getIdToken();
       this.headers = {
-        Authorization: `Bearer ${token}`,
+        Authorization: `Bearer ${token}`
       };
-    },
-    refreshImages(a: any) {
-      this.newestUploadId = a.imageId;
     },
     onProgress(a: any, b: any) {
       console.log(a, b);
     },
+    onChange(item: any) {
+      this.imageAdded = item;
+    }
   },
   computed: {
     uploadUrl(): string {
       return `${this.$config.apiPath}/function/design/glyph`;
-    },
-  },
+    }
+  }
 });
 </script>
 

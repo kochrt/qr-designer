@@ -157,7 +157,6 @@ export const actions: ActionTree<RootState, RootState> = {
     if (state.creating) {
       return
     }
-    this.$fire.analytics.logEvent("create_code_start_editing");
     commit('setCreating', true)
     const newTag: { url?: string, redirect: boolean } = {
       redirect: !!state.swink.tag.redirect

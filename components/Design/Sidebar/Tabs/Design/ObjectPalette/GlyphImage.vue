@@ -18,19 +18,19 @@
         "
         :class="{ 'opacity-50': selected, 'opacity-0': !selected }"
       ></div>
-      <input
+      <!-- <input
         v-show="glyph.fullPath && (hovering || selected)"
         type="checkbox"
         v-model="selected"
         class="top-2 right-2 rounded text-purple-600 absolute cursor-pointer p-2"
         :class="{ 'opacity-75': !selected }"
-      />
+      /> -->
       <img
         loading="lazy"
         @dragstart="dragStart"
         draggable="true"
         class="mb-1 cursor-move border border-gray-300 border-dashed"
-        :src="`/design/glyph/${glyph.fullPath}`"
+        :src="glyph"
       />
     </div>
   </div>
@@ -51,18 +51,9 @@ export default Vue.extend({
       selected: false,
     };
   },
-  watch: {
-    selected(val, oldVal) {
-      if (val) {
-        this.$emit("selected", this.glyph.fullPath);
-      } else {
-        this.$emit("deselected", this.glyph.fullPath);
-      }
-    },
-  },
   methods: {
     dragStart(event: DragEvent) {
-      if (this.glyph.fullPath) {
+      if (this.glyph) {
         this.$store.commit(
           "designMeta/setDraggingItem",
           this.draggingItemFromEvent(event)
