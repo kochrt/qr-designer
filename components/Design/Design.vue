@@ -47,6 +47,42 @@
           </div>
         </div>
       </div>
+      <div class="px-4 md:px-8 w-full">
+        <div
+          class="
+        rounded
+        p-3
+        border
+        mb-6
+        items-start
+        flex flex-row
+        bg-gray-50
+        border-gray-300
+        text-gray-700
+        gap-2
+      "
+        >
+          <svg
+            class="w-5 h-5 pt-1"
+            focusable="false"
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+            fill="currentColor"
+          >
+            <path
+              d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"
+            ></path>
+          </svg>
+          <div class="">
+            <p>
+              Check out my other project, 
+              <a href="https://markwhen.com" class="underline"
+                >markwhen.com</a
+              >, a calendar/journaling/timeline tool.
+            </p>
+          </div>
+        </div>
+      </div>
       <div class="flex flex-col px-4 md:px-8 w-full pb-4">
         <p>
           The following character set is allowed:
