@@ -33,6 +33,11 @@ export default {
       {
         src: "https://js.stripe.com/v3/",
         defer: true
+      },
+      {
+        defer: true,
+        src: "https://static.cloudflareinsights.com/beacon.min.js",
+        "data-cf-beacon": '{"token": "ba9d1866bd0e4b30af60c1be9ee36d51"}'
       }
     ]
   },
@@ -85,11 +90,7 @@ export default {
   },
 
   // Modules: https://go.nuxtjs.dev/config-modules
-  modules: [
-    "@nuxtjs/axios",
-    "@nuxt/content",
-    "nuxt-element-ui"
-  ],
+  modules: ["@nuxtjs/axios", "@nuxt/content", "nuxt-element-ui"],
 
   elementUI: {
     components: ["Upload"]
@@ -155,7 +156,7 @@ export default {
     }
   },
 
-  target: 'static',
+  target: "static",
   router: {
     base: "/qr-designer/"
   }
